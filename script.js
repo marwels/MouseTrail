@@ -8,6 +8,7 @@ function trail(event) {
 
     let dot = document.createElement("div");
     document.getElementById("body").appendChild(dot);
+    dot.classList.add("dot");
     dot.style.backgroundColor = "rgb(" + Math.random(0, 256) + "," + Math.random(0, 256) + "," + Math.random(0, 256) + ");";
     let randomForSize = Math.random(10, 30);
     dot.style.height = randomForSize + "px";
@@ -16,8 +17,6 @@ function trail(event) {
     dot.style.left = Math.random(posX - range - randomForSize, posX + range) + "px;";
     dot.style.top = Math.random(posY - range - randomForSize, posY + range) + "px;";
 }
-
-
 
 
 window.addEventListener("mousemove", trail);
