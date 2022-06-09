@@ -1,3 +1,6 @@
+//set timeout
+
+
 function trail(event) {
 
     let posX = event.clientX;
@@ -8,15 +11,23 @@ function trail(event) {
 
     let dot = document.createElement("div");
     document.getElementById("body").appendChild(dot);
-    dot.classList.add("dot");
-    dot.style.backgroundColor = "rgb(" + Math.random(0, 256) + "," + Math.random(0, 256) + "," + Math.random(0, 256) + ");";
-    let randomForSize = Math.random(10, 30);
+    dot.style.backgroundColor = "rgb(" + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + ")";
+    let randomForSize = Math.random() * 20 + 10;
     dot.style.height = randomForSize + "px";
     dot.style.width = randomForSize + "px";
     let range = 20;
-    dot.style.left = Math.random(posX - range - randomForSize, posX + range) + "px;";
-    dot.style.top = Math.random(posY - range - randomForSize, posY + range) + "px;";
+    dot.style.left = (posX + (Math.random() - 0.5) * range) + "px";
+    dot.style.top = (posY + (Math.random() - 0.5) * range) + "px";
+    dot.classList.add("dot",);
 }
 
+function blank() {
+    let dots = document.querySelectorAll(".dot");
+    dots.forEach(dot => {
+        dot.remove();
+    });
+
+}
 
 window.addEventListener("mousemove", trail);
+window.addEventListener("click", blank)
