@@ -19,6 +19,10 @@ function trail(event) {
     dot.style.left = (posX + (Math.random() - 0.5) * range) + "px";
     dot.style.top = (posY + (Math.random() - 0.5) * range) + "px";
     dot.classList.add("dot",);
+
+    setTimeout(() => {
+        dot.remove();
+    }, 1000);
 }
 
 function blank() {
